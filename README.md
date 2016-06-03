@@ -1,5 +1,5 @@
 # paste-upload-image.js
-JQuery 复制粘贴上传图片插件（textarea 和 tinyMCE）
+[JQuery 复制粘贴上传图片插件（textarea 和 tinyMCE）](http://www.cnblogs.com/xishuai/p/jquery-paste-upload-image.html)
 
 `textarea`使用：
 
@@ -16,7 +16,7 @@ JQuery 复制粘贴上传图片插件（textarea 和 tinyMCE）
     <textarea name="txtContent" id="txtContent" style="width:500px;height:200px;"></textarea>
     
     <script>
-        $("#txtContent").pasteUploadImage();
+        $("#txtContent").pasteUploadImage();//bind textarea
     </script>
 </body>
 </html>
