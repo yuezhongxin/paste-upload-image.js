@@ -62,6 +62,48 @@
 </html>
 ```
 
+后端处理：
+
+```cs
+public class ImageUploaderController : Controller
+{
+
+    [AllowCors("sub.example.com")]//跨域访问
+    [HttpPost]
+    public async Task<string> ProcessPasteUpload(HttpPostedFileBase imageFile, string mimeType)
+    {
+        ///to do...
+    }
+}
+
+public class AllowCorsAttribute : ActionFilterAttribute
+{
+    private string[] _domains;
+
+    public AllowCorsAttribute(string domain)
+    {
+        _domains = new string[] { domain };
+    }
+
+    public AllowCorsAttribute(string[] domains)
+    {
+        _domains = domains;
+    }
+
+    public override void OnActionExecuting(ActionExecutingContext filterContext)
+    {
+        var context = filterContext.RequestContext.HttpContext;
+        var host = context.Request.UrlReferrer?.Host;
+        if (host != null && _domains.Contains(host))
+        {
+            context.Response.AddHeader("Access-Control-Allow-Origin", $"http://{host}");
+            context.Response.AddHeader("Access-Control-Allow-Credentials", "true");
+        }
+        base.OnActionExecuting(filterContext);
+    }
+}
+```
+
 效果展示：
 
 ![](http://images2015.cnblogs.com/blog/435188/201606/435188-20160603150528999-774769562.gif)
