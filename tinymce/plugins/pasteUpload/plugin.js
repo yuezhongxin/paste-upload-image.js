@@ -46,7 +46,6 @@
                 var formData = new FormData();
                 formData.append('imageFile', file);
                 formData.append("mimeType", file.type);
-                formData.append("host", host);
 
                 $.ajax({
                     url: ajaxUrl,
