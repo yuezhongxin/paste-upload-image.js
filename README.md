@@ -4,7 +4,7 @@
 
 支持 Ctrl+C/Ctrl+V 上传，也支持 QQ/微信截图上传。
 
-`textarea`使用：
+`textarea`使用（返回`markdown`格式的图片格式）：
 
 ```html
 <!DOCTYPE html>
