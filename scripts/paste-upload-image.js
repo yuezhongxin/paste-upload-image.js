@@ -56,7 +56,6 @@
         var formData = new FormData();
         formData.append('imageFile', file);
         formData.append("mimeType", file.type);
-        formData.append("host", 'www.cnblogs.com');
 
         $.ajax({
             url: $ajaxUrl,
