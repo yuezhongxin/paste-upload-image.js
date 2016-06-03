@@ -8,7 +8,7 @@ JQuery 复制粘贴上传图片插件（textarea 和 tinyMCE）
 <html>
 <head>
     <title></title>
-	  <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <script src="scripts/jquery.js"></script>
     <script src="scripts/paste-upload-image.js"></script>
 </head>
@@ -29,7 +29,7 @@ JQuery 复制粘贴上传图片插件（textarea 和 tinyMCE）
 <html>
 <head>
     <title></title>
-	  <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <script src="scripts/jquery.js"></script>
     <script src="tinymce/tinymce.js"></script>
 </head>
