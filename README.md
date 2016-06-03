@@ -1,5 +1,8 @@
 # paste-upload-image.js
+
 [JQuery 复制粘贴上传图片插件（textarea 和 tinyMCE）](http://www.cnblogs.com/xishuai/p/jquery-paste-upload-image.html)
+
+支持 Ctrl+C/Ctrl+V，也支持 QQ/微信 截图上传。
 
 `textarea`使用：
 
