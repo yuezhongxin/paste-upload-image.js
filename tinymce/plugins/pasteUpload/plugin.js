@@ -12,7 +12,7 @@
 
 (function () {
     var host = "www.cnblogs.com";
-    var ajaxUrl = 'http://upload.cnblogs.com/imageuploader/ProcessPasteUpload';
+    var ajaxUrl = '';
     var loadingImage = '<img id="loadingImg" src="http://static.cnblogs.com/images/loading.gif" alt="" />';
 
     tinymce.create('tinymce.plugins.PasteUploadPlugin', {

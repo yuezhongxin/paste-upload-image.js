@@ -1,6 +1,6 @@
 ﻿(function ($) {
     var $this;
-    var $ajaxUrl = 'http://upload.cnblogs.com/imageuploader/ProcessPasteUpload';
+    var $ajaxUrl = '';
     $.fn.pasteUploadImage = function () {
         $this = $(this);
         $this.on('paste', function (event) {
