@@ -1,8 +1,9 @@
-﻿(function ($) {
+(function ($) {
     var $this;
     var $ajaxUrl = '';
-    $.fn.pasteUploadImage = function () {
+    $.fn.pasteUploadImage = function (host) {
         $this = $(this);
+        $host = host;
         $this.on('paste', function (event) {
             var filename, image, pasteEvent, text;
             pasteEvent = event.originalEvent;
@@ -14,6 +15,20 @@
                     text = "{{" + filename + "(uploading...)}}";
                     pasteText(text);
                     return uploadFile(image.getAsFile(), filename);
+                }
+            }
+        });
+        $this.on('drop', function (event) {
+            var filename, image, pasteEvent, text;
+            pasteEvent = event.originalEvent;
+            if (pasteEvent.dataTransfer && pasteEvent.dataTransfer.files) {
+                image = isImageForDrop(pasteEvent);
+                if (image) {
+                    event.preventDefault();
+                    filename = pasteEvent.dataTransfer.files[0].name || "image.png";
+                    text = "{{" + filename + "(uploading...)}}";
+                    pasteText(text);
+                    return uploadFile(image, filename);
                 }
             }
         });
@@ -42,6 +57,18 @@
         }
         return false;
     };
+    isImageForDrop = function (data) {
+        var i, item;
+        i = 0;
+        while (i < data.dataTransfer.files.length) {
+            item = data.dataTransfer.files[i];
+            if (item.type.indexOf("image") !== -1) {
+                return item;
+            }
+            i++;
+        }
+        return false;
+    };
     getFilename = function (e) {
         var value;
         if (window.clipboardData && window.clipboardData.getData) {
@@ -52,10 +79,18 @@
         value = value.split("\r");
         return value[0];
     };
+    getMimeType = function (file, filename) {
+        var mimeType = file.type;
+        var extendName = filename.substring(filename.lastIndexOf('.') + 1);
+        if (mimeType != 'image/' + extendName) {
+            return 'image/' + extendName;
+        }
+        return mimeType
+    };
     uploadFile = function (file, filename) {
         var formData = new FormData();
         formData.append('imageFile', file);
-        formData.append("mimeType", file.type);
+        formData.append("mimeType", getMimeType(file, filename));
 
         $.ajax({
             url: $ajaxUrl,
@@ -64,6 +99,9 @@
             processData: false,
             contentType: false,
             dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
             success: function (data) {
                 if (data.success) {
                     return insertToTextArea(filename, data.message);
