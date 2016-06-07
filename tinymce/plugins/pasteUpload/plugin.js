@@ -11,7 +11,6 @@
 /*global tinymce:true */
 
 (function () {
-    var host = "www.cnblogs.com";
     var ajaxUrl = '';
     var loadingImage = '<img id="loadingImg" src="http://static.cnblogs.com/images/loading.gif" alt="" />';
 
