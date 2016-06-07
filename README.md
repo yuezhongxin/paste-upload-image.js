@@ -2,7 +2,7 @@
 
 [JQuery 复制粘贴上传图片插件（textarea 和 tinyMCE）](http://www.cnblogs.com/xishuai/p/jquery-paste-upload-image.html)
 
-支持 Ctrl+C/Ctrl+V 上传，也支持 QQ/微信截图上传。
+支持 Ctrl+C/Ctrl+V 上传，支持拖拽上传，也支持 QQ/微信截图上传。
 
 `textarea`使用（返回`markdown`格式的图片格式）：
 
