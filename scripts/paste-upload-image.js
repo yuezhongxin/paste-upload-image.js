@@ -1,9 +1,9 @@
 (function ($) {
     var $this;
     var $ajaxUrl = '';
-    $.fn.pasteUploadImage = function (host) {
+    $.fn.pasteUploadImage = function (ajaxUrl) {
         $this = $(this);
-        $host = host;
+        $ajaxUrl = ajaxUrl;
         $this.on('paste', function (event) {
             var filename, image, pasteEvent, text;
             pasteEvent = event.originalEvent;
