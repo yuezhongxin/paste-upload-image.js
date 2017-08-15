@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -12,7 +12,9 @@
     <textarea name="mceContent" id="mceContent"></textarea>
 
     <script>
-        $("#txtContent").pasteUploadImage();
+        $("#txtContent").pasteUploadImage("demo-upload.php"); 
+        // 用你自己的后端处理脚本地址替换"demo-upload.php"
+        // replace "demo-upload.php" with your backend uploader path
 
         tinymce.init({
             selector: '#mceContent',

@@ -11,7 +11,8 @@
 /*global tinymce:true */
 
 (function () {
-    var ajaxUrl = '';
+    var ajaxUrl = 'demo-upload.php';
+    console.log("请在生产环境中移除这一行以及修改上面的ajaxUrl。");console.log("please remove this line and replace ajaxUrl with your backend image upload handle in product env");
     var loadingImage = '<img id="loadingImg" src="http://static.cnblogs.com/images/loading.gif" alt="" />';
 
     tinymce.create('tinymce.plugins.PasteUploadPlugin', {
